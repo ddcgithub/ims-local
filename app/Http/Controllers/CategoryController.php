@@ -28,7 +28,7 @@ class CategoryController extends Controller
         Category::create([
             "user_id"=>auth()->id(),
             "name" => $request->name,
-            "slug" => Str::slug($request->name)
+            "slug" => Str::slug($request->name, '-', 'th')
         ]);
 
         return redirect()
@@ -54,7 +54,7 @@ class CategoryController extends Controller
     {
         $category->update([
             "name" => $request->name,
-            "slug" => Str::slug($request->name)
+            "slug" => Str::slug($request->name, '-', 'th')
         ]);
 
         return redirect()

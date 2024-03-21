@@ -73,7 +73,7 @@ class ProductController extends Controller
             'tax_type'          => $request->tax_type,
             'notes'             => $request->notes,
             "user_id" => auth()->id(),
-            "slug" => Str::slug($request->name, '-'),
+            "slug" => Str::slug($request->name, '-', 'th'),
             "uuid" => Str::uuid()
         ]);
 
@@ -121,7 +121,7 @@ class ProductController extends Controller
         }
 
         $product->name = $request->name;
-        $product->slug = Str::slug($request->name, '-');
+        $product->slug = Str::slug($request->name, '-', 'th');
         $product->category_id = $request->category_id;
         $product->unit_id = $request->unit_id;
         $product->quantity = $request->quantity;
